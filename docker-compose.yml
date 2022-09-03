@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   sonarqube:
-    image: registry.bibliotecas.aprendendo.com.br/sonarqube:latest
+    image: registry.libraries.homelab/sonarqube:latest
     container_name: sonarqube
     restart: always
     volumes:
@@ -20,16 +20,16 @@ services:
       net-database-sqlserver:
       net-sonarqube:
         aliases:
-          - sonarqube.aprendendo.com.br
+          - sonarqube.homelab
     environment:
       - TZ=America/Maceio
       - sonar.jdbc.username=sonar
-      - sonar.jdbc.password=tfdY9askBq3krXZ
+      - sonar.jdbc.password=????
       - sonar.jdbc.url=jdbc:sqlserver://mssql:1433;databaseName=sonar
     labels:
       - traefik.enable=true
       - traefik.docker.network=net-proxy
-      - traefik.frontend.rule=Host:sonarqube.aprendendo.com.br
+      - traefik.frontend.rule=Host:sonarqube.homelab
       - traefik.frontend.passHostHeader=true
       - traefik.frontend.headers.SSLRedirect=true
       - traefik.frontend.headers.forceSTSHeader=true
@@ -40,6 +40,7 @@ services:
       - traefik.frontend.headers.contentTypeNosniff=true
       - traefik.backend=sonarqube
       - traefik.port=9000
+      
     # healthcheck:
     #   test: curl --fail -s http://localhost:9000/api/system/status || exit 1
     #                                              api/system/health
