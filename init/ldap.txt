@@ -1,0 +1,14 @@
+sonar.security.realm=LDAP
+sonar.authenticator.downcase=true
+ldap.url=ldap://openldap:389
+ldap.bindDn=cn=ldap-reader,dc=homelab
+ldap.bindPassword=????
+
+ldap.user.baseDn=ou=users,dc=homelab
+ldap.user.request=(&(objectClass=posixAccount)(uid={login}))
+ldap.user.realNameAttribute=cn
+ldap.user.emailAttribute=mail
+
+ldap.group.baseDn=ou=groups,dc=homelab
+ldap.group.request=(&(objectClass=groupOfUniqueNames)(cn={dn}))
+ldap.group.idAttribute=cn
