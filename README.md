@@ -88,10 +88,10 @@ docker cp data sonarqube:/opt/sonarqube/data
 
 1. [SonarLint.](https://www.sonarlint.org "SonarLint")
 
-## License:
+### License:
 
 [MIT](LICENSE "MIT License")
 
-## Created by: 
+### Created by:
 
 1. Luciano Sampaio.
